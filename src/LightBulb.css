@@ -1,0 +1,16 @@
+.bulb {
+  border: 1px solid black;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 2.5vw;
+}
+
+.on {
+  background-color: #948A18;
+  filter: blur(0.5vw) brightness(2);
+}
+
+.off {
+  background-color: #948A18;
+  filter: brightness(0.75)
+}

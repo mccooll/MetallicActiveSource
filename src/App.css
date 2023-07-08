@@ -3,3 +3,8 @@ main {
   vertical-align: center;
   line-height: 100vh
 }
+
+.sample {
+  width: 5vw;
+  height: 5vw;
+}

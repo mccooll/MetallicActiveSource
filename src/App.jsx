@@ -1,20 +1,17 @@
+import { useState } from 'react'
 import './App.css'
+import LightBulb from './LightBulb'
+import Colors from './Colors'
+import Switch from './Switch'
 
 const App = ({name}) => {
-  const today = new Date()
+  const [isOn, setIsOn] = useState(true);
   return (
     <div>
-      <p>{name}'s React App ⚛️</p>
-      <p>Made today {today.toDateString()}</p>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
+      <LightBulb on={isOn}></LightBulb>
+      <Switch toggle={() => setIsOn(!isOn)}></Switch>
     </div>
   )
 }
-
-export const FancyParagraph = ({text}) => <p style={{fontWeight:'bold'}}>{text}</p>
 
 export default App;
