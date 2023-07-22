@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import AppContext from './AppContext'
 import './LightBulb.css'
 import {randomColour} from './randomColour'
 
-const LightBulb = ({on}) => {
+const LightBulb = () => {
   const [colour, setColour] = useState(randomColour());
+  const on = useContext(AppContext)
 
   useEffect(() => {
     if(on===true) {
