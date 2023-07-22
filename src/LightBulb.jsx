@@ -9,7 +9,8 @@ const LightBulb = ({on}) => {
     if(on===true) {
       setColour(randomColour())
     }
-  }, [on])
+    return () => console.log('removed')
+  },[on])
   
   return (
     <div className={`bulb ${on ? 'on':'off'}`} style={{backgroundColor: colour}}></div>

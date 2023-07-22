@@ -1,4 +1,4 @@
-//import setColor from './RandomColor.jsx'
+
 export default () => {
   return (
     <>

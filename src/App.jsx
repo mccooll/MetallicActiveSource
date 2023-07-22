@@ -5,23 +5,18 @@ import Colors from './Colors'
 import Switch from './Switch'
 
 const App = ({name}) => {
-  const [bulbs, setBulbs] = useState(Array(20).fill(true));
-  console.log(bulbs)
-
-  const toggleBulb = (i) => {
-    const newBulbs = [...bulbs];
-    newBulbs[i] = !bulbs[i];
-    setBulbs(newBulbs)
-  }
+  const [on, setOn] = useState(true);
   
   return (
     <div>
-      {bulbs.map((onStatus,i) => (
-        <div>
-         <LightBulb on={onStatus}></LightBulb>
-         <Switch toggle={() => toggleBulb(i) }></Switch>
-        </div>)
-      )}
+      <div class="lightFixture">
+        <LightBulb on={on}></LightBulb>
+        <LightBulb on={on}></LightBulb>
+        <LightBulb on={on}></LightBulb>
+        <LightBulb on={on}></LightBulb>
+        <LightBulb on={on}></LightBulb>
+      </div>
+      <Switch toggle={() => setOn(!on) }></Switch>
     </div>
   )
 }

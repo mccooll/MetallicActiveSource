@@ -1,17 +1,32 @@
 
 .bulb {
   border: 1px solid black;
-  width: 5vw;
-  height: 5vw;
-  border-radius: 2.5vw;
+  width: 9vw;
+  height: 9vw;
+  border-radius: 4.5vw;
 }
 
 .on {
   background-color: #948A18;
-  filter: blur(0.5vw) brightness(2);
+  opacity:1;
+  filter: blur(0.5vw) brightness(1.5);
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
 }
 
 .off {
   background-color: #948A18;
-  filter: brightness(0.75)
+  filter: brightness(0.25)
+}
+
+@keyframes pulsate {
+  0% {
+    opacity: 1
+  }
+  50% {
+    opacity: 0.9
+  }
+  100% {
+    opacity: 1
+  }
 }
