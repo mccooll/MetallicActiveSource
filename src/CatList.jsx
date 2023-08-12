@@ -4,39 +4,23 @@ import ListItem from '@mui/material/ListItem';
 import List from '@mui/material/List';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import PetsIcon from '@mui/icons-material/Pets';
-import Modal from '@mui/material/Modal';
+import { Link } from 'react-router-dom'
 
 
-const CatList = ({cats}) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedCat, setSelectedCat] = useState({});
-
-  const handleOpen = (cat) => {
-    setIsModalOpen(true);
-    setSelectedCat(cat);
-  }
-
-  const handleClose = () => {
-    setIsModalOpen(false);
-  }
+const CatList = ({cats, selectCat}) => {
 
   return (
     <>
-      <Modal open={isModalOpen} onClose={()=>handleClose()}>
-        <div className="catModal">
-          <h1>{selectedCat.name}</h1>
-          <div><img src={selectedCat.image} /></div>
-          <p>{selectedCat.desc}</p>
-        </div>
-      </Modal>
       <List>
         {
           cats.map((c) => (
-              <ListItem key={c.name} onClick={()=>handleOpen(c)}>
+              <ListItem key={c.name}>
                 <ListItemIcon>
                   <PetsIcon />
                 </ListItemIcon>
-                <ListItemText>{c.name}</ListItemText>
+                <Link to="cat" onClick={()=>selectCat(c)}>
+                  <ListItemText>{c.name}</ListItemText>
+                </Link>
               </ListItem>
           ))
         }

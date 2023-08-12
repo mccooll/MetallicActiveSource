@@ -1,8 +1,3 @@
-.lightFixture {
-  display:flex;
-  justify-content: space-around;
-}
-
 main {
   text-align: center;
   vertical-align: center;
@@ -35,4 +30,21 @@ main {
 .catModal img {
   width: 100%;
   border-radius: 1vmax;
+}
+
+.MuiGrid2-root {
+  display: flex;
+  justify-content: center;
+}
+.catPage {
+  display: flex;
+  align-items: center;
+  padding: 5vmax;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.lightFixture {
+  display:flex;
+  justify-content: space-around;
 }

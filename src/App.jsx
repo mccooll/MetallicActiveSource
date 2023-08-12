@@ -4,11 +4,12 @@ import LightBulb from './LightBulb'
 import Colors from './Colors'
 import Switch from './Switch'
 import AppContext from './AppContext'
-import CatList from './CatList'
-import CatForm from './CatForm'
 import Stack from '@mui/material/Stack';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
+import { Routes, Route } from 'react-router-dom'
+import Home from './Home'
+import Cat from './Cat'
 
 const theme = createTheme({
   palette: {
@@ -21,6 +22,7 @@ const theme = createTheme({
 const App = ({name}) => {
   const [on, setOn] = useState(true);
   const [cats, setCats] = useState([{name:"David", breed:"Human"}]);
+  const [selectedCat, setSelectedCat] = useState({});
 
   console.log('render')
 
@@ -52,14 +54,12 @@ const App = ({name}) => {
           </AppContext.Provider>
         </Grid>
         <Grid xs={12}>
-        <Switch toggle={() => setOn(!on) } />
+          <Switch toggle={() => setOn(!on) } />
         </Grid>
-        <Grid xs={12}>
-          <CatForm addNewCat={name => addNewCat(name)}/>
-        </Grid>
-        <Grid xs={12}>
-          <CatList cats={cats} />
-        </Grid>
+        <Routes>
+          <Route path="/" element={<Home cats={cats} addNewCat={addNewCat} selectCat={setSelectedCat} />} />
+          <Route path="/cat" element={<Cat cat={selectedCat} />} />
+        </Routes>
       </Grid>
     </ThemeProvider>
   )
