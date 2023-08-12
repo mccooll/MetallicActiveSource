@@ -22,7 +22,6 @@ const theme = createTheme({
 const App = ({name}) => {
   const [on, setOn] = useState(true);
   const [cats, setCats] = useState([{name:"David", breed:"Human"}]);
-  const [selectedCat, setSelectedCat] = useState({});
 
   console.log('render')
 
@@ -57,8 +56,8 @@ const App = ({name}) => {
           <Switch toggle={() => setOn(!on) } />
         </Grid>
         <Routes>
-          <Route path="/" element={<Home cats={cats} addNewCat={addNewCat} selectCat={setSelectedCat} />} />
-          <Route path="/cat" element={<Cat cat={selectedCat} />} />
+          <Route path="/" element={<Home cats={cats} addNewCat={addNewCat} />} />
+          <Route path="/cat/:catId" element={<Cat cats={cats} />} />
         </Routes>
       </Grid>
     </ThemeProvider>

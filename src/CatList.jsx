@@ -7,7 +7,7 @@ import PetsIcon from '@mui/icons-material/Pets';
 import { Link } from 'react-router-dom'
 
 
-const CatList = ({cats, selectCat}) => {
+const CatList = ({cats}) => {
 
   return (
     <>
@@ -18,7 +18,7 @@ const CatList = ({cats, selectCat}) => {
                 <ListItemIcon>
                   <PetsIcon />
                 </ListItemIcon>
-                <Link to="cat" onClick={()=>selectCat(c)}>
+                <Link to={`cat/${c.id}`}>
                   <ListItemText>{c.name}</ListItemText>
                 </Link>
               </ListItem>
