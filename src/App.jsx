@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import LightBulb from './LightBulb'
 import Colors from './Colors'
@@ -20,6 +20,16 @@ const theme = createTheme({
 const App = ({name}) => {
   const [on, setOn] = useState(true);
   const [cats, setCats] = useState([{name:"David", breed:"Human"}]);
+
+  console.log('render')
+
+  useEffect(() => {
+    (async () => {
+      const result = await fetch("https://64bc22537b33a35a4447124f.mockapi.io/cats")
+      const catsResult = await result.json()
+      setCats(catsResult)
+    })()
+  },[])
 
   const addNewCat = (name) => {
     const breed = "Human";

@@ -11,7 +11,7 @@ const CatList = ({cats}) => {
     <List>
       {
         cats.map((c) => (
-            <ListItem>
+            <ListItem key={c.name}>
               <ListItemIcon>
                 <PetsIcon />
               </ListItemIcon>
