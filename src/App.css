@@ -13,3 +13,7 @@ main {
   width: 5vw;
   height: 5vw;
 }
+
+.switch {
+  font-size: 3rem;
+}

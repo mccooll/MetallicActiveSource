@@ -1,5 +1,5 @@
 export default ({toggle}) => {
   return (
-    <button onClick={toggle}>💡</button>
+    <button class="switch" onClick={toggle}>💡</button>
   )
 }

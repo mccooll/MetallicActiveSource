@@ -8,6 +8,7 @@ import CatList from './CatList'
 import CatForm from './CatForm'
 import Stack from '@mui/material/Stack';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Grid from '@mui/material/Unstable_Grid2';
 
 const theme = createTheme({
   palette: {
@@ -40,8 +41,8 @@ const App = ({name}) => {
   
   return (
     <ThemeProvider theme={theme}>
-      <div>
-        <div className="lightFixture">
+      <Grid container spacing={2}>
+        <Grid xs={12} className="lightFixture">
           <AppContext.Provider value={on}>
             <LightBulb></LightBulb>
             <LightBulb></LightBulb>
@@ -49,17 +50,17 @@ const App = ({name}) => {
             <LightBulb></LightBulb>
             <LightBulb></LightBulb>
           </AppContext.Provider>
-        </div>
+        </Grid>
+        <Grid xs={12}>
         <Switch toggle={() => setOn(!on) } />
-        <Stack>
-        <div>
+        </Grid>
+        <Grid xs={12}>
           <CatForm addNewCat={name => addNewCat(name)}/>
-        </div>
-        <div>
+        </Grid>
+        <Grid xs={12}>
           <CatList cats={cats} />
-        </div>
-        </Stack>
-      </div>
+        </Grid>
+      </Grid>
     </ThemeProvider>
   )
 }
