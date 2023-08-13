@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom"
 
-export default ({cats}) => {
+const Cat = ({cats}) => {
     const { catId } = useParams();
     console.log(cats)
     const cat = cats.find(c => c.id === catId);
@@ -15,3 +15,5 @@ export default ({cats}) => {
         </div>
     )
 }
+
+export default Cat;
