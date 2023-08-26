@@ -1,0 +1,39 @@
+name: deploy
+# Run workflow only on push to dev branch
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  # To build the project
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out code
+        uses: actions/checkout@v3
+      - name: Installing Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: Installing dependencies
+        run: npm install
+      - name: Test
+        run: npm run test
+      - name: Building project
+        run: npm run build
+        env:
+          CI: false
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: '${{ secrets.UPLOAD_STORAGE }}'
+          service_account: 'service-account-cat-cafe@clever-muse-281000.iam.gserviceaccount.com'
+      - id: 'upload-folder'
+        uses: 'google-github-actions/upload-cloud-storage@v1'
+        with:
+          path: './dist'
+          destination: 'grassy-cat-cafe-3'
+          parent: false
+          headers:  |-
+            cache-control: no-cache
