@@ -9,7 +9,7 @@ const Cat = ({cats}) => {
     return (
         <div className="catPage">
           <h1>{cat.name}</h1>
-          <div><img src={cat.image} /></div>
+          <div><img src={cat.image} alt={cat.desc} /></div>
           <p>{cat.desc}</p>
           <Link to="/">Back to Home</Link>
         </div>

@@ -19,7 +19,7 @@ const CatList = ({cats}) => {
                   <PetsIcon />
                 </ListItemIcon>
                 <Link to={`cat/${c.id}`}>
-                  <ListItemText>{c.name}</ListItemText>
+                  <ListItemText title="Test">{c.name}</ListItemText>
                 </Link>
               </ListItem>
           ))

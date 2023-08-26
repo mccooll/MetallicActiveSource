@@ -56,8 +56,8 @@ const App = ({name}) => {
           <Switch toggle={() => setOn(!on) } />
         </Grid>
         <Routes>
-          <Route path="/" element={<Home cats={cats} addNewCat={addNewCat} />} />
           <Route path="/cat/:catId" element={<Cat cats={cats} />} />
+          <Route path="*" element={<Home cats={cats} addNewCat={addNewCat} />} />
         </Routes>
       </Grid>
     </ThemeProvider>
